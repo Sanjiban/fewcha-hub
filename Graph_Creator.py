@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# The following code prints the no. of commits made and the months in which the commits were made in the master branch of my repo
+# The following code plots a graph of the no. of commits made with the elapse of time from the beginning to the end of the project
 import sys
 from git import *
 import time
@@ -26,8 +26,8 @@ for element in month_year_list:
 	finalcomlist[finallist.index(element)]+=1
 start_y, stop_y = finallist[-1].split(" ")[1], finallist[0].split(" ")[1]
 start_m, stop_m = finallist[-1].split(" ")[0], finallist[0].split(" ")[0]
-a=[]
-b=[]
+a=[] #list of all the months from beginning to end of project, even those during which no commits were made
+b=[] #list of number of commits made in each of the months from beginning to end of project
 if start_y==stop_y:
 	for i in range(monthlist.index(start_m),monthlist.index(stop_m)+1):
 		a.append(monthlist[i]+" "+start_y)
