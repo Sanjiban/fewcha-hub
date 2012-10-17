@@ -1,22 +1,26 @@
 #!/usr/bin/env python
 # The following code plots a graph of the no. of commits made with the elapse of time from the beginning to the end of the project
-import sys
+import sys, os
 from git import *
 import time
 import matplotlib.pyplot as plt
+if(len(sys.argv)!=2):
+	sys.exit("Error: Wrong format! Correct format is: './Graph_Creator.py '<path of the cloned git repo from root>")
+path=sys.argv[1]
+if(not(os.path.exists(path))):
+	sys.exit("Error: Given path does not exist! Please try again...")
 repo=Repo(sys.argv[1])
 commit_list=repo.iter_commits('master')
 date_time_list=[]
 yearlist=[]
 month_year_list=[]
-shortmonthlist=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-monthlist=['January','February','March','April','May','June','July','August','September','October','November','December'];
+monthlist=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 for my_commit in commit_list:
 	date_time_list.append(time.asctime(time.gmtime(my_commit.committed_date)))
 for date in date_time_list:
 	month=date.split(' ')[1] #name of month in short form
 	year=date.split(' ')[-1] #year
-	month_year_list.append(monthlist[shortmonthlist.index(month)]+' '+year) #<name of month in full>" "<year>
+	month_year_list.append(month+' '+year) #<month>" "<year>
 finallist=[] #list of "month year" WITHOUT REPITION
 finalcomlist=[] #list of no. of commits made in each month present in finallist
 for element in month_year_list:
