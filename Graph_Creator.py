@@ -9,7 +9,7 @@ if(len(sys.argv)!=2):
 path=sys.argv[1]
 if(not(os.path.exists(path))):
 	sys.exit("Error: Given path does not exist! Please try again...")
-repo=Repo(sys.argv[1])
+repo=Repo(path)
 commit_list=repo.iter_commits('master')
 date_time_list=[]
 yearlist=[]
