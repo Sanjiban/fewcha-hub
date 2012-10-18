@@ -4,7 +4,7 @@ import sys, os
 from git import *
 import time
 import matplotlib.pyplot as plt
-if(len(sys.argv)!=2):
+if len(sys.argv)!=2:
 	sys.exit("Error: Wrong format! Correct format is: './Graph_Creator.py '<path of the cloned git repo from root>")
 path=sys.argv[1]
 if not os.path.exists(path):
