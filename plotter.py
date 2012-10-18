@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 if(len(sys.argv)!=2):
 	sys.exit("Error: Wrong format! Correct format is: './Graph_Creator.py '<path of the cloned git repo from root>")
 path=sys.argv[1]
-if(not(os.path.exists(path))):
+if not os.path.exists(path):
 	sys.exit("Error: Given path does not exist! Please try again...")
 repo=Repo(path)
 commit_list=repo.iter_commits('master')
