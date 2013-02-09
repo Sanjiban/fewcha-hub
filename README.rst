@@ -4,8 +4,8 @@ AIM
 --------
 This tool creates a graph of the commit history of the git repo which is entered by the user
 
-TOOLS TO BE USED
------------------
+TOOLS USED
+-----------
 - GitPython
 - matplotlib
 
